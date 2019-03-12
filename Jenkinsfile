@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    tools {
+        maven 'LocalMAVEN'
+    }
+
     stages {
         stage ('Build Servlet Project') {
             steps {
