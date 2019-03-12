@@ -9,9 +9,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                steps {
-                    echo 'Hello there'
-                }
+                echo 'Hello there'
             }
         }
     }
