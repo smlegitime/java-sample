@@ -16,15 +16,9 @@ pipeline {
             }
         }
 
-        stage ('Build') {
+        stage ('Deploy Build in Staging Area') {
             steps {
-                echo 'Hello there'
-            }
-        }
-
-        stage ('Deploy') {
-            steps {
-                echo 'Deployed an artifact'
+                build job : 'Deploy_StagingArea-Pipeline'
             }
         }
     }
