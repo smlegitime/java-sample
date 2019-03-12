@@ -1,9 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage ('Initialize') {
+        stage ('Build Servlet Project') {
             steps {
-                echo 'Initializing the code file.'
+                /* Maven step */
+                bat 'mvn clean package'
+            }
+            /*Post-build actions*/
+            post {
+                success {
+                    echo 'Now Archiving...'
+
+                    archiveArtifacts artifacts : '**/*.war'
+                }
             }
         }
 
